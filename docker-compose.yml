@@ -1,0 +1,11 @@
+services:
+  personal-drive:
+    image: personaldrive/personaldrive
+    container_name: personal-drive
+    ports:
+      - "8080:80"
+    volumes:
+      - ./host:/var/www/html/personal-drive-storage-folder
+      - ./personal-drive-data:/var/www/html/personal-drive/database
+    environment:
+      DISABLE_HTTPS: false

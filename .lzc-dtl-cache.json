@@ -1,0 +1,32 @@
+{
+  "name": "Personal Drive",
+  "package": "xyz.mxue.personaldrive",
+  "description": "google drive 和 dropbox 的自托管替代品",
+  "homepage": "https://github.com/gyaaniguy/personal-drive",
+  "author": "gyaaniguy",
+  "app_features": [],
+  "subdomain": "personaldrive",
+  "version": "0.0.1",
+  "iconPath": "lzc-app-icon.png",
+  "composePath": "docker-compose.yml",
+  "unsupported_platforms": [],
+  "lastRouteType": "from_compose",
+  "port_mappings": {
+    "personal-drive_8080_80": {
+      "use": true,
+      "type": "http",
+      "path": "/",
+      "targetPath": "/"
+    }
+  },
+  "image_personaldrive_personaldrive": {
+    "originalImage": "personaldrive/personaldrive",
+    "pushTarget": "lazycat",
+    "newImageName": "registry.lazycat.cloud/mxuexxmy/personaldrive/personaldrive:70945983f5246bf4",
+    "timestamp": "2025-03-25T11:36:19.283Z"
+  },
+  "personal-drive_volume_/var/www/html/personal-drive-storage-folder_action": "emptyDir",
+  "personal-drive_volume_/var/www/html/personal-drive-storage-folder_location": "app_data",
+  "personal-drive_volume_personal-drive-data_/var/www/html/personal-drive/database_action": "emptyDir",
+  "personal-drive_volume_/var/www/html/personal-drive/database_location": "app_data"
+}

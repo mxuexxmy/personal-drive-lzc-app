@@ -1,0 +1,24 @@
+lzc-sdk-version: "0.1"
+name: Personal Drive
+package: xyz.mxue.personaldrive
+version: 0.0.1
+description: google drive 和 dropbox 的自托管替代品
+homepage: https://github.com/gyaaniguy/personal-drive
+author: gyaaniguy
+application:
+  subdomain: personaldrive
+  background_task: false
+  multi_instance: false
+  gpu_accel: false
+  kvm_accel: false
+  usb_accel: false
+  routes:
+    - /=http://personal-drive.xyz.mxue.personaldrive.lzcapp:80/
+services:
+  personal-drive:
+    image: registry.lazycat.cloud/mxuexxmy/personaldrive/personaldrive:70945983f5246bf4
+    environment:
+      - DISABLE_HTTPS=true
+    binds:
+      - /lzcapp/var/personal-drive-storage-folder:/var/www/html/personal-drive-storage-folder
+      - /lzcapp/var/database:/var/www/html/personal-drive/database
